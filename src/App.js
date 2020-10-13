@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import routes from './routes'
 import Nav from './Components/Nav/Nav';
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 
 function App(props) {
@@ -11,9 +11,8 @@ function App(props) {
       {props.location.pathname !== '/'
         ? <Nav />
         : null}
-        {routes}
+      {routes}
     </div>
-  
   );
 }
 

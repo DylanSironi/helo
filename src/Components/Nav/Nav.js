@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Link,} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Nav extends Component {
     render() {
@@ -7,9 +7,9 @@ class Nav extends Component {
         return (
             <div className='nav'>
                 <img src='https://robohash.org/7IC.png?set=set2&size=150x150' alt='robot' />
-                <button >Home</button>
-                <button>New Post</button>
-                <button>Logout</button>
+                <button ><Link to='/dashboard'>Home</Link></button>
+                <button><Link to='/new'>New Post</Link></button>
+                <button><Link to='/'>Logout</Link></button>
             </div>
         )
     }
