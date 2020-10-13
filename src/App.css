@@ -12,9 +12,10 @@
   justify-content: space-around;
 }
 button{
-  color: white;
   background-color: transparent;
-  border: 0;
+  border: 1;
+  font-size: medium;
+  width: 8vw;
 }
 img{
   width: 8vw;
