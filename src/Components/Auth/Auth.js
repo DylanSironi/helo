@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 // import {connect} from 'react-redux';
 // import {getUser} from '../../ducks/reducer';
 
@@ -23,13 +24,21 @@ class Auth extends Component {
             })
             .catch(err => console.log(err));
     }
+    handleLogin = () => {
+        const { username, password } = this.state;
 
-
+        axios.post('/api/login', { username, password })
+            .then(res => {
+                this.props.getUser(res.data);
+                this.props.history.push('/dashboard');
+            })
+            .catch(err => console.log(err));
+    }
     render() {
         return (
             <div className='auth'>
-                <button> Login </button>
-                <button> Register </button>
+                <button><Link to='/dashboard'>Login</Link></button>
+                <button><Link to='/dashboard'>Register</Link></button>
                 <input
                     value={this.state.username}
                     name='username'
@@ -37,11 +46,12 @@ class Auth extends Component {
                     onChange={(e) => this.handleInput(e)} />
 
                 <input
+                    type='password'
                     value={this.state.password}
                     name='password'
                     placeholder='Password'
                     onChange={(e) => this.handleInput(e)} />
-                
+
             </div>
         )
     }
