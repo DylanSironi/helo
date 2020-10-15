@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from "react-router-dom";
-// import {connect} from 'react-redux';
-// import {getUser} from '../../ducks/reducer';
+// import { Link } from "react-router-dom";
+import {connect} from 'react-redux';
+import {getUser} from '../../ducks/reducer';
 
 class Auth extends Component {
     constructor(props) {
@@ -29,6 +29,7 @@ class Auth extends Component {
 
         axios.post('/api/login', { username, password })
             .then(res => {
+                console.log(res.data)
                 this.props.getUser(res.data);
                 this.props.history.push('/dashboard');
             })
@@ -37,8 +38,8 @@ class Auth extends Component {
     render() {
         return (
             <div className='auth'>
-                <button><Link to='/dashboard'>Login</Link></button>
-                <button><Link to='/dashboard'>Register</Link></button>
+                <button onClick = {this.handleLogin}>Login</button>
+                <button onClick = {this.handleRegister}>Register</button>
                 <input
                     value={this.state.username}
                     name='username'
@@ -56,7 +57,7 @@ class Auth extends Component {
         )
     }
 }
-// const mapStateToProps = reduxState => reduxState;
+const mapStateToProps = reduxState => reduxState;
 
-// export default connect(mapStateToProps, {getUser})(Auth);
-export default Auth
+export default connect(mapStateToProps, {getUser})(Auth);
+// export default Auth

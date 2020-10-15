@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const express = require('express'),
       massive = require('massive'),
-      authCtrl = require('./controller'),
+      Ctrl = require('./controller'),
     //   session = require('express-session'),
     //   authCtrl = require('./controllers/authController'),
     //   mainCtrl = require('./controllers/mainController'),
@@ -28,7 +28,8 @@ massive({
 });
 
 //auth endpoints
-app.post('/api/register', authCtrl.register)
+app.post('/api/register', Ctrl.register);
+app.post('/api/login', Ctrl.login);
 
 //post endpoints
 
