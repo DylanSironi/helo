@@ -1,10 +1,8 @@
 insert into users (
     username,
-    password,
-    profile_picture
+    password 
 ) values (
     ${username},
-    ${hash},
-    ${profilePicture}
+    ${hash}
 )
-returning user_id, username, profile_picture;
+returning id, username;

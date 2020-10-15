@@ -2,6 +2,7 @@
   text-align: center;;
   display: flex;
   font-family: sans-serif;
+  background: rgb(243, 164, 118);;
 }
 .nav {
   background-color:rgb(243, 164, 118);
@@ -19,4 +20,10 @@ button{
 }
 img{
   width: 8vw;
+}
+input{
+  height: 19.5px;
+}
+button{
+  background-color: grey;
 }
