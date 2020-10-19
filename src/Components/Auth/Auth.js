@@ -3,6 +3,7 @@ import axios from 'axios';
 // import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { getUser } from '../../ducks/reducer';
+// import {updateUser} from '../../ducks/reducer'
 
 class Auth extends Component {
     constructor(props) {
@@ -42,7 +43,11 @@ class Auth extends Component {
                 this.props.history.push('/');
             })
             .catch(err => console.log(err))
+            // console.log(this.state)
     }
+    // handleUpdate = () => {
+    //     axios.put
+    // }
     render() {
         return (
             <div className='auth'>
@@ -69,3 +74,5 @@ class Auth extends Component {
 const mapStateToProps = reduxState => reduxState;
 
 export default connect(mapStateToProps, { getUser })(Auth);
+// export default connect(mapStateToProps, { getUser }, { updateUser })(Auth);
+

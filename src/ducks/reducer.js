@@ -24,12 +24,12 @@ export function logout() {
   }
 }
 
-// export function updateUser(user) {
-//   return {
-//     type: UPDATE_USER,
-//     payload: user
-//   }
-// }
+export function updateUser(user) {
+  return {
+    type: UPDATE_USER,
+    payload: user
+  }
+}
 
 // export function loginUser(username, userId) {
 //   return {
@@ -50,7 +50,7 @@ export default function reducer(state = initialState, action) {
     case GET_USER:
       return { ...state, user: payload };
     case UPDATE_USER:
-      return { ...state, username: payload.username, userId: payload.id };
+      return { ...state, username: payload.user.username, userId: payload.user.userId };
     // case GET_USER + '_PENDING':
     //   return { ...state }
     // case GET_USER + '_FULFILLED':
