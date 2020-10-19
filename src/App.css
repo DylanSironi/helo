@@ -20,10 +20,24 @@ button{
 }
 img{
   width: 8vw;
+  box-shadow: 5 5 5 5;
 }
 input{
   height: 19.5px;
 }
 button{
   background-color: grey;
+}
+.auth{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 500px;
+}
+.auth input{
+
+}
+.auth button{
+ 
 }

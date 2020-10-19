@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 // import { Link } from "react-router-dom";
-import {connect} from 'react-redux';
-import {getUser} from '../../ducks/reducer';
+import { connect } from 'react-redux';
+import { getUser } from '../../ducks/reducer';
 
 class Auth extends Component {
     constructor(props) {
@@ -35,11 +35,17 @@ class Auth extends Component {
             })
             .catch(err => console.log(err));
     }
+    handleLogout = () => {
+        axios.get('/api/logout')
+            .then(() => {
+                this.props.clearUser();
+                this.props.history.push('/');
+            })
+            .catch(err => console.log(err))
+    }
     render() {
         return (
             <div className='auth'>
-                <button onClick = {this.handleLogin}>Login</button>
-                <button onClick = {this.handleRegister}>Register</button>
                 <input
                     value={this.state.username}
                     name='username'
@@ -52,6 +58,9 @@ class Auth extends Component {
                     name='password'
                     placeholder='Password'
                     onChange={(e) => this.handleInput(e)} />
+                <button onClick={this.handleLogin}>Login</button>
+                <button onClick={this.handleRegister}>Register</button>
+                
 
             </div>
         )
@@ -59,5 +68,4 @@ class Auth extends Component {
 }
 const mapStateToProps = reduxState => reduxState;
 
-export default connect(mapStateToProps, {getUser})(Auth);
-// export default Auth
+export default connect(mapStateToProps, { getUser })(Auth);
